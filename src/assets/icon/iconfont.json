@@ -1,0 +1,44 @@
+{
+  "id": "3204024",
+  "name": "Pjws",
+  "font_family": "fontFamily",
+  "css_prefix_text": "alicon",
+  "description": "判决文书分析系统前端",
+  "glyphs": [
+    {
+      "icon_id": "4765724",
+      "name": "compass",
+      "font_class": "compass",
+      "unicode": "e77d",
+      "unicode_decimal": 59261
+    },
+    {
+      "icon_id": "4765897",
+      "name": "location",
+      "font_class": "location",
+      "unicode": "e790",
+      "unicode_decimal": 59280
+    },
+    {
+      "icon_id": "4766918",
+      "name": "mail",
+      "font_class": "mail",
+      "unicode": "e7de",
+      "unicode_decimal": 59358
+    },
+    {
+      "icon_id": "4766970",
+      "name": "phone",
+      "font_class": "phone",
+      "unicode": "e7e3",
+      "unicode_decimal": 59363
+    },
+    {
+      "icon_id": "4766971",
+      "name": "shake",
+      "font_class": "shake",
+      "unicode": "e7e4",
+      "unicode_decimal": 59364
+    }
+  ]
+}

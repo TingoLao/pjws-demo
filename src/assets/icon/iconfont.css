@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "fontFamily"; /* Project id 3204024 */
+  src: url('iconfont.woff2?t=1645719707850') format('woff2'),
+       url('iconfont.woff?t=1645719707850') format('woff'),
+       url('iconfont.ttf?t=1645719707850') format('truetype'),
+       url('iconfont.svg?t=1645719707850#fontFamily') format('svg');
+}
+
+.fontFamily {
+  font-family: "fontFamily" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.alicon-compass:before {
+  content: "\e77d";
+}
+
+.alicon-location:before {
+  content: "\e790";
+}
+
+.alicon-mail:before {
+  content: "\e7de";
+}
+
+.alicon-phone:before {
+  content: "\e7e3";
+}
+
+.alicon-shake:before {
+  content: "\e7e4";
+}
+
