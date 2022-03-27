@@ -2,11 +2,11 @@
 export default {
   activities: [
     {
-      timestamp: '4月1日',
+      timestamp: '2015年4月1日',
       timeLineList: [
         {
           categories: '',
-          timestamp: '10：00',
+          timestamp: '10:00',
           info: 'BOSS账单',
           timeLineBranch: [
             { timestamp: '10:00', categories: 0, info: 'BOSS账单' },
@@ -16,22 +16,22 @@ export default {
         },
         {
           categories: 1,
-          timestamp: '12：00',
+          timestamp: '12:00',
           info: '入会',
         },
         {
           categories: 2,
-          timestamp: '13：00',
+          timestamp: '13:00',
           info: 'BOSS收入划拨',
         },
         {
           categories: 1,
-          timestamp: '12：00',
+          timestamp: '12:00',
           info: '入会',
         },
         {
           categories: 2,
-          timestamp: '13：00',
+          timestamp: '13:00',
           info: 'BOSS收入划拨',
         },
       ],
@@ -41,13 +41,13 @@ export default {
       timeLineList: [
         {
           categories: 2,
-          timestamp: '13：00',
-          info: '工作室更名为：西安拓美网络科技有限公司3',
+          timestamp: '13:00',
+          info: '工作室更名为:西安拓美网络科技有限公司3',
         },
         {
           categories: 2,
-          timestamp: '14：00',
-          info: '工作室更名为：西安拓美网络科技有限公司4',
+          timestamp: '14:00',
+          info: '工作室更名为:西安拓美网络科技有限公司4',
           timeLineBranch: [
             { timestamp: '4月1日', categories: 3, info: '佣金结算' },
             { timestamp: '4月1日', categories: 3, info: 'z端用户结算' },
@@ -58,23 +58,23 @@ export default {
         },
         {
           categories: 2,
-          timestamp: '16：00',
-          info: '工作室更名为：西安拓美网络科技有限公司5',
+          timestamp: '16:00',
+          info: '工作室更名为:西安拓美网络科技有限公司5',
         },
         {
           categories: 2,
-          timestamp: '18：00',
-          info: '工作室更名为：西安拓美网络科技有限公司6',
+          timestamp: '18:00',
+          info: '工作室更名为:西安拓美网络科技有限公司6',
         },
         {
           categories: 2,
-          timestamp: '16：00',
-          info: '工作室更名为：西安拓美网络科技有限公司5',
+          timestamp: '16:00',
+          info: '工作室更名为:西安拓美网络科技有限公司5',
         },
         {
           categories: 2,
-          timestamp: '18：00',
-          info: '工作室更名为：西安拓美网络科技有限公司6',
+          timestamp: '18:00',
+          info: '工作室更名为:西安拓美网络科技有限公司6',
         },
       ],
     },
@@ -83,13 +83,13 @@ export default {
       timeLineList: [
         {
           categories: 2,
-          timestamp: '16：00',
-          info: '工作室更名为：西安拓美网络科技有限公司5',
+          timestamp: '16:00',
+          info: '工作室更名为:西安拓美网络科技有限公司5',
         },
         {
           categories: 2,
-          timestamp: '18：00',
-          info: '工作室更名为：西安拓美网络科技有限公司6',
+          timestamp: '18:00',
+          info: '工作室更名为:西安拓美网络科技有限公司6',
         },
       ],
     },
@@ -99,17 +99,17 @@ export default {
         {
           categories: 2,
           timestamp: '20:00',
-          info: '工作室更名为：西安拓美网络科技有限公司03',
+          info: '工作室更名为:西安拓美网络科技有限公司03',
         },
         {
           categories: 2,
           timestamp: '22:00',
-          info: '工作室更名为：西安拓美网络科技有限公司02',
+          info: '工作室更名为:西安拓美网络科技有限公司02',
         },
         {
           categories: 2,
           timestamp: '2016-10-6',
-          info: '工作室更名为：西安拓美网络科技有限公司01',
+          info: '工作室更名为:西安拓美网络科技有限公司01',
           timeLineBranch: [
             { timestamp: '4月1日', categories: 3, info: 'z端用户结算' },
             { timestamp: '10:00', categories: 0, info: 'BOSS账单' },
@@ -120,27 +120,27 @@ export default {
         {
           categories: 0,
           timestamp: '20:00',
-          info: '工作室更名为：西安拓美网络科技有限公司03',
+          info: '工作室更名为:西安拓美网络科技有限公司03',
         },
         {
           categories: 2,
           timestamp: '22:00',
-          info: '工作室更名为：西安拓美网络科技有限公司02',
+          info: '工作室更名为:西安拓美网络科技有限公司02',
         },
         {
           categories: 2,
           timestamp: '2016-10-6',
-          info: '工作室更名为：西安拓美网络科技有限公司01',
+          info: '工作室更名为:西安拓美网络科技有限公司01',
         },
         {
           categories: 2,
           timestamp: '20:00',
-          info: '工作室更名为：西安拓美网络科技有限公司03',
+          info: '工作室更名为:西安拓美网络科技有限公司03',
         },
         {
           categories: 2,
           timestamp: '20:00',
-          info: '工作室更名为：西安拓美网络科技有限公司03',
+          info: '工作室更名为:西安拓美网络科技有限公司03',
         },
       ],
     },

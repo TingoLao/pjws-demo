@@ -58,7 +58,7 @@ export default {
           timeLineList: [
             {
               status: "",
-              timestamp: "10：00",
+              timestamp: "10:00",
               info: "BOSS账单",
               timeLineBranch: [
                 { timestamp: "10:00", status: "Prerequisite ", info: "BOSS账单" },
@@ -76,22 +76,22 @@ export default {
             },
             {
               status: "position",
-              timestamp: "12：00",
+              timestamp: "12:00",
               info: "入会",
             },
             {
               status: "involved",
-              timestamp: "13：00",
+              timestamp: "13:00",
               info: "BOSS收入划拨",
             },
             {
               status: "position",
-              timestamp: "12：00",
+              timestamp: "12:00",
               info: "入会",
             },
             {
               status: "involved",
-              timestamp: "13：00",
+              timestamp: "13:00",
               info: "BOSS收入划拨",
             },
           ],
@@ -101,13 +101,13 @@ export default {
           timeLineList: [
             {
               status: "involved",
-              timestamp: "13：00",
-              info: "工作室更名为：西安拓美网络科技有限公司3",
+              timestamp: "13:00",
+              info: "工作室更名为:西安拓美网络科技有限公司3",
             },
             {
               status: "involved",
-              timestamp: "14：00",
-              info: "工作室更名为：西安拓美网络科技有限公司4",
+              timestamp: "14:00",
+              info: "工作室更名为:西安拓美网络科技有限公司4",
               timeLineBranch: [
                 { timestamp: "4月1日", status: "event", info: "佣金结算" },
                 { timestamp: "4月1日", status: "event", info: "z端用户结算" },
@@ -126,23 +126,23 @@ export default {
             },
             {
               status: "involved",
-              timestamp: "16：00",
-              info: "工作室更名为：西安拓美网络科技有限公司5",
+              timestamp: "16:00",
+              info: "工作室更名为:西安拓美网络科技有限公司5",
             },
             {
               status: "involved",
-              timestamp: "18：00",
-              info: "工作室更名为：西安拓美网络科技有限公司6",
+              timestamp: "18:00",
+              info: "工作室更名为:西安拓美网络科技有限公司6",
             },
             {
               status: "involved",
-              timestamp: "16：00",
-              info: "工作室更名为：西安拓美网络科技有限公司5",
+              timestamp: "16:00",
+              info: "工作室更名为:西安拓美网络科技有限公司5",
             },
             {
               status: "involved",
-              timestamp: "18：00",
-              info: "工作室更名为：西安拓美网络科技有限公司6",
+              timestamp: "18:00",
+              info: "工作室更名为:西安拓美网络科技有限公司6",
             },
           ],
         },
@@ -151,13 +151,13 @@ export default {
           timeLineList: [
             {
               status: "involved",
-              timestamp: "16：00",
-              info: "工作室更名为：西安拓美网络科技有限公司5",
+              timestamp: "16:00",
+              info: "工作室更名为:西安拓美网络科技有限公司5",
             },
             {
               status: "involved",
-              timestamp: "18：00",
-              info: "工作室更名为：西安拓美网络科技有限公司6",
+              timestamp: "18:00",
+              info: "工作室更名为:西安拓美网络科技有限公司6",
             },
           ],
         },
@@ -167,17 +167,17 @@ export default {
             {
               status: "involved",
               timestamp: "20:00",
-              info: "工作室更名为：西安拓美网络科技有限公司03",
+              info: "工作室更名为:西安拓美网络科技有限公司03",
             },
             {
               status: "involved",
               timestamp: "22:00",
-              info: "工作室更名为：西安拓美网络科技有限公司02",
+              info: "工作室更名为:西安拓美网络科技有限公司02",
             },
             {
               status: "involved",
               timestamp: "2016-10-6",
-              info: "工作室更名为：西安拓美网络科技有限公司01",
+              info: "工作室更名为:西安拓美网络科技有限公司01",
               timeLineBranch: [
                 { timestamp: "4月1日", status: "event", info: "z端用户结算" },
                 { timestamp: "10:00", status: "Prerequisite ", info: "BOSS账单" },
@@ -196,27 +196,27 @@ export default {
             {
               status: "Prerequisite ",
               timestamp: "20:00",
-              info: "工作室更名为：西安拓美网络科技有限公司03",
+              info: "工作室更名为:西安拓美网络科技有限公司03",
             },
             {
               status: "involved",
               timestamp: "22:00",
-              info: "工作室更名为：西安拓美网络科技有限公司02",
+              info: "工作室更名为:西安拓美网络科技有限公司02",
             },
             {
               status: "involved",
               timestamp: "2016-10-6",
-              info: "工作室更名为：西安拓美网络科技有限公司01",
+              info: "工作室更名为:西安拓美网络科技有限公司01",
             },
             {
               status: "involved",
               timestamp: "20:00",
-              info: "工作室更名为：西安拓美网络科技有限公司03",
+              info: "工作室更名为:西安拓美网络科技有限公司03",
             },
             {
               status: "involved",
               timestamp: "20:00",
-              info: "工作室更名为：西安拓美网络科技有限公司03",
+              info: "工作室更名为:西安拓美网络科技有限公司03",
             },
           ],
         },

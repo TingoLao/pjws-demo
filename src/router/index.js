@@ -6,7 +6,7 @@ import { createRouter, createWebHashHistory, createWebHistory, useRouter } from 
 //Vue.use(Router)
 //Vue.use(VueRouter) ——————cli3.0 写法
 
-const Login = () => import('@/views/Login/login')
+//const Login = () => import('@/views/Login/login') // 另一种写法
 const Home = () => import('@/views/Home/home.vue')
 //import Home from '../views/Home/home.vue'
 const Archives = () => import('@/views/Archives/archives.vue')    //档案库模块
@@ -37,7 +37,7 @@ const router = createRouter({
     {
       path: '/login',
       name: 'Login',
-      component: Login,
+      component: () => import('@/views/Login/login'),
       meta: {
         title: '登录'
       }
