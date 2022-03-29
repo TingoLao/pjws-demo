@@ -35,7 +35,7 @@
     <el-autocomplete
       class="addNode_inputBox"
       placeholder="请输入节点类别"
-      v-model="state"
+      v-model="this.inputArr.categories"
       :fetch-suggestions="querySearch"
       @select="handleSelect"
     ></el-autocomplete>
@@ -44,6 +44,12 @@
 
   <!-- 全屏画布 -->
   <div id="fullScreen" class="fullScreenSet" v-show="chartShow === true"></div>
+
+  <!-- 关系标签修改框 -->
+  <div id="edgeEdict" v-show="edgeEdictShow">
+    <el-input placeholder="新的关系"></el-input>
+    <el-button>确认</el-button>
+  </div>
 </template>
 
 
@@ -53,7 +59,8 @@ import * as echarts from "echarts";
 import $ from "jquery";
 import { relation } from "./data";
 import { createOption } from "./setOption";
-
+import { nextTick } from "vue";
+let myChart = null;
 export default {
   data() {
     // 获取当前点击节点的links传入穿梭框 （未完成）
@@ -82,7 +89,12 @@ export default {
 
       // 添加节点内容框 节点类别建议数组
       inputSort: [],
-      state: "",
+
+      // 被选中添加的父节点
+      selecedNode: [],
+
+      // 被选中删除节点的索引
+      selectedIndex: [],
     };
   },
 
@@ -91,32 +103,46 @@ export default {
     key: "pawId",
     label: "name",
   },
-
   mounted() {
     // 官方流程
-    var myChart = echarts.init(document.getElementById("mycharts")); //  初始化实例对象
+    myChart = echarts.init(document.getElementById("mycharts")); //  初始化实例对象
     let that = this;
     myChart.showLoading();
     myChart.hideLoading();
 
-    relation.nodes.forEach(function (node) {
-      node.label = {
-        show: node.symbolSize > 20,
-      };
-    });
+    // 不显示问题
+    // relation.nodes.forEach(function (node) {
+    //   console.log(2222);
+    //   node.label = {
+    //     show: node.symbolSize > 20,
+    //   };
+    // });
 
     const option = createOption(
       this.showTransfer.bind(this),
       this.showFullScreen.bind(this),
       this.showAddNode.bind(this)
     );
+
     myChart.setOption(option);
 
-    // 实现双击聚焦关系标签edgeLabel 变为input修改内容
+    myChart.on("click", (params) => {
+      this.selecedNode = params.name;
+      // console.log(this.selecedNode);
+    });
+
+    // 需求：
+    // 实现双击聚焦关系标签edgeLabel 变为input输入框修改内容
+
+    myChart.on("dblclick", (param) => {
+      console.log(param);
+    });
+
     // getZr() params.setoffX
     this.initChart(myChart);
-    // 实现滚动放大缩小时 关系线标签edgeLabel同步放大缩小
-    // 如何复用到全屏中!!!
+
+    // 实现滚动放大缩小时 关系线标签edgeLabel同步放大缩小 已完成
+    // 如何复用到全屏中!!! 已完成
 
     this.inputSort = this.loadAll();
   },
@@ -126,6 +152,7 @@ export default {
     chartShow: false, // 全屏显示框显示Flag
     ChartScreen: null, // 全屏显示框内容
     transferShow: false, // 穿梭框显示Flag
+    edgeEdictShow: false, // 关系标签显隐Flag
     addNodeShow: false, // 节点增加功能框Flag
 
     // toolbox工具 全屏放大方法
@@ -205,11 +232,23 @@ export default {
         return this.choicePointData;
       });
 
-      chart.getZr().on("click", (param) => {
+      // 判断点击的关系线
+      chart.on("dblclick", (param) => {
+        // console.log(param);
         // console.log(param.dataType);
         if (param.dataType === "edge") {
-          // console.log(param);
+          console.log("111");
+          var x = param.event.offsetX;
+          var y = param.event.offsetY;
+          var divPosi = document.getElementById("#edgeEdict");
+          $("#edgeEdict").show().css({ position: 'absolute', left: x, top: y });
         }
+      });
+
+      myChart.on("click", (params) => {
+        this.selecedNode = params.name;
+        this.selectedIndex = params.dataIndex;
+        console.log(params.dataIndex);
       });
     },
 
@@ -273,6 +312,9 @@ export default {
         { value: "配角", category: 3 },
       ];
     },
+    handleSelect(item) {
+      console.log(item);
+    },
 
     // 增加节点
     // addNode() {
@@ -311,23 +353,25 @@ export default {
     addNode(chart) {
       // 增加节点功能
       console.log(chart);
-      if (this.inputArr.newNode != null) {
+      if (this.inputArr.newNode != null && this.selecedNode != null) {
         relation.nodes.push({
           name: this.inputArr.newNode,
           des: this.inputArr.des,
           symbolSize: 20,
-          category: this.sort.category,
+          category: this.inputArr.categories,
         });
         relation.links.push({
-          source: "高小凤",
-          target: this.inputArr.newNode,
-          name: "师生",
+          source: this.inputArr.newNode,
+          target: this.selecedNode,
+          name: "未定义",
           des: this.inputArr.des,
         });
 
-        // 添加数据后重新渲染关系图
+        // console.log(relation.links);
+        this.selecedNode = null; // 清空选中节点
 
-        this.option = createOption({
+        // 重新渲染
+        myChart.setOption({
           series: [
             {
               data: relation.nodes,
@@ -335,8 +379,29 @@ export default {
             },
           ],
         });
-        this.initChart.chart.setOption(option);
+      } else if (this.selecedNode == null) {
+        alert("未选择节点");
+      }
+    },
+
+    // 删除节点
+    deleteNode() {
+      console.log(111);
+      if (this.selecedNode != null) {
+        var selectedIndex = this.selectedIndex;
+        relation.nodes.splice(selectedIndex, 1);
+        this.selectedIndex = null;
         console.log(relation.nodes);
+
+        // 重新渲染
+        myChart.setOption({
+          series: [
+            {
+              data: relation.nodes,
+              links: relation.links,
+            },
+          ],
+        });
       }
     },
   },
@@ -345,6 +410,7 @@ export default {
 
 <style>
 .chartSet {
+  position: relative;
   width: 100%;
   height: 90%;
   /* background-color: aqua; */
@@ -377,6 +443,16 @@ export default {
   z-index: 10;
 }
 
+/* 编辑关系标签输入框 */
+#edgeEdict {
+  width: 60px;
+  height: 15px;
+  border: 1px solid;
+  flex-direction: row;
+  background-color: rgba(243, 243, 243, 0.863);
+  z-index: 22;
+}
+
 /* 添加节点框样式 */
 .myAddNode {
   width: 240px;
@@ -396,7 +472,6 @@ export default {
 
 .addNode_inputBox {
   width: 150px;
-  
 }
 
 .addNode_btn {

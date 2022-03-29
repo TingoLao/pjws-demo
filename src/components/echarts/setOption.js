@@ -1,5 +1,6 @@
 import { relation } from "./data";
-export const createOption = (showTransfer, showFullScreen, addNode) => ({
+
+export const createOption = (showTransfer, showFullScreen, showAddNode, deleteNode) => ({
     title: {
         text: "关系网图结果",
         subtext: "Default layout",
@@ -68,17 +69,22 @@ export const createOption = (showTransfer, showFullScreen, addNode) => ({
                 onclick: (e) => {
                     var opts = e.getOption();
                     // console.log(opts);
-                    addNode(opts);
+                    showAddNode(opts);
                     // console.log(opts)
                 },
             },
-            // // 删除节点功能
-            // myDelet: {
-            //     show: true,
-            //     title: "删除节点",
-            //     icon: "M834.99804688 142.859375c25.46081543 0 46.14257813 20.6817627 46.14257812 46.14257813v645.99609375c0 25.46081543-20.6817627 46.14257813-46.14257813 46.14257812H189.00195312c-25.46081543 0-46.14257813-20.6817627-46.14257812-46.14257812V189.00195312c0-25.46081543 20.6817627-46.14257813 46.14257813-46.14257812h645.99609375m0-52.734375H189.00195312C134.37243652 90.125 90.125 134.37243652 90.125 189.00195312v645.99609375c0 54.62951661 44.24743653 98.87695313 98.87695313 98.87695313h645.99609375c54.62951661 0 98.87695313-44.24743653 98.87695312-98.87695313V189.00195312c0-54.62951661-44.24743653-98.87695313-98.87695312-98.87695312z,M696.5703125 485.6328125H327.4296875c-14.58435059 0-26.3671875 11.78283692-26.3671875 26.3671875s11.78283692 26.3671875 26.3671875 26.3671875h369.140625c14.58435059 0 26.3671875-11.78283692 26.3671875-26.3671875s-11.78283692-26.3671875-26.3671875-26.3671875z",
 
-            // }
+
+            // 删除节点功能
+            myDelet: {
+                show: true,
+                title: "删除节点",
+                icon: "M834.99804688 142.859375c25.46081543 0 46.14257813 20.6817627 46.14257812 46.14257813v645.99609375c0 25.46081543-20.6817627 46.14257813-46.14257813 46.14257812H189.00195312c-25.46081543 0-46.14257813-20.6817627-46.14257812-46.14257812V189.00195312c0-25.46081543 20.6817627-46.14257813 46.14257813-46.14257812h645.99609375m0-52.734375H189.00195312C134.37243652 90.125 90.125 134.37243652 90.125 189.00195312v645.99609375c0 54.62951661 44.24743653 98.87695313 98.87695313 98.87695313h645.99609375c54.62951661 0 98.87695313-44.24743653 98.87695312-98.87695313V189.00195312c0-54.62951661-44.24743653-98.87695313-98.87695312-98.87695312z,M696.5703125 485.6328125H327.4296875c-14.58435059 0-26.3671875 11.78283692-26.3671875 26.3671875s11.78283692 26.3671875 26.3671875 26.3671875h369.140625c14.58435059 0 26.3671875-11.78283692 26.3671875-26.3671875s-11.78283692-26.3671875-26.3671875-26.3671875z",
+                onclick: (e) => {
+                    console.log(e.getOption());
+
+                }
+            }
 
         },
         orient: "vertical", // 垂直布局
@@ -115,7 +121,21 @@ export const createOption = (showTransfer, showFullScreen, addNode) => ({
                 repulsion: 2500,
                 edgeLength: [20, 50],
             },
-            symbolSize: 40,
+
+            // 节点大小根据各自的 target和source数量判断
+            // 关系越多节点越大
+            symbolSize:
+                (value, params) => {
+
+                    var node = params.data.name
+                    var counter = 0;
+                    for (var i = 0; i < relation.links.length; i++) {
+                        if (relation.links[i].target == node || relation.links[i].source == node) { counter++ }
+                    }
+                    params.data.symbolSize = 15 * counter
+                    // console.log(params.data)
+                    return params.data.symbolSize
+                },
             edgeSymbolSize: [40, 10],
 
             draggable: true,
@@ -126,6 +146,12 @@ export const createOption = (showTransfer, showFullScreen, addNode) => ({
             label: {
                 position: "inside",
                 formatter: "{b}",
+                // show: function (params) {
+                //     if (params.data.symbolSize > 80) {
+                //         return true
+                //     }
+                // },
+                // fontfamily: 'Yuanti SC'
             },
             // 标签覆盖自动隐藏
             // labelLayout: {
@@ -155,7 +181,7 @@ export const createOption = (showTransfer, showFullScreen, addNode) => ({
 
             // 缩放限制
             scaleLimit: {
-                min: 0.4,
+                min: 0.5,
                 max: 2,
             },
         },
